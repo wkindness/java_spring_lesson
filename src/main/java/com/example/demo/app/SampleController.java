@@ -33,4 +33,17 @@ public class SampleController {
 		return "test";
 	}
 
+	@GetMapping("/ngtest")
+	public String ngtest(Model model) {
+		
+		String sql = "SELECT id,name,email "
+				+"FROM inquiry WHERE id = 2000";
+		Map<String, Object> map = jdbcTemplate.queryForMap(sql);
+		
+		model.addAttribute("title", "sample text");
+		model.addAttribute("name", map.get("name"));
+		model.addAttribute("email", map.get("email"));
+		return "test";
+	}
+
 }
