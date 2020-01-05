@@ -58,12 +58,12 @@ public class InquiryController {
 	@GetMapping("/form")
 	public String form(InquiryForm inquiryForm, Model model, @ModelAttribute("complete") String complete) {
 		model.addAttribute("title", "お問い合わせページ");
-		return "inquiry/form";
+		return "inquiry/form_boot";
 	}
 	@PostMapping("/form")
 	public String formBack(InquiryForm inquiryForm, Model model) {
 		model.addAttribute("title", "お問い合わせページ");
-		return "inquiry/form";
+		return "inquiry/form_boot";
 	}
 
 	@PostMapping("/confirm")
@@ -72,10 +72,10 @@ public class InquiryController {
 		// エラーあり
 		if(result.hasErrors()) {
 			model.addAttribute("title", "お問い合わせページ");
-			return "inquiry/form";
+			return "inquiry/form_boot";
 		}
 		model.addAttribute("title", "確認ページ");
-		return "inquiry/confirm";
+		return "inquiry/confirm_boot";
 	}
 	
 	@PostMapping("/complete")
@@ -85,7 +85,7 @@ public class InquiryController {
 		// エラーあり
 		if(result.hasErrors()) {
 			model.addAttribute("title", "お問い合わせページ");
-			return "inquiry/form";
+			return "inquiry/form_boot";
 		}
 
 		// 詰め替え処理

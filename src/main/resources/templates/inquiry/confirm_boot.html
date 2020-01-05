@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and  contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title th:text="${title}">Starter Template · </title>
+
+    <link rel="canonical" href="https://get.com/docs/4.4/examples/starter-template/">
+
+    <!--  core CSS -->
+<link href="/docs/4.4/dist/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" th:href="@{/css/starter-template.css}" rel="stylesheet">
+  </head>
+  <body>
+
+<div th:replace="~{block/header::headerA}"></div>
+
+<main role="main" class="container">
+
+<div class="starter-template">
+<h1 th:text="${title}">dummy</h1>
+</div>
+
+<div th:object="${inquiryForm}">
+  <div class="mb-5">
+	  <table class="table">
+	    <tr>
+	      <th scope="row">名前</th>
+		  <td th:text="*{name}"></td>
+		</tr>
+	    <tr>
+	      <th scope="row">メールアドレス</th>
+		  <td th:text="*{email}"></td>
+		</tr>
+	    <tr>
+	      <th scope="row">内容</th>
+		  <td th:text="*{contents}"></td>
+		</tr>
+	  </table>
+	</div>
+
+	<form method="post" action="#" th:action="@{/inquiry/form}" class="mb-4">
+		<input name="name" type="hidden" th:value="*{name}">
+		<input name="email" type="hidden" th:value="*{email}">
+		<input name="contents" type="hidden" th:value="*{contents}">
+		<input type="submit" class="btn btn-secondary" value="戻る">
+	</form>
+
+	<form method="post" action="#" th:action="@{/inquiry/complete}">
+		<input name="name" type="hidden" th:value="*{name}">
+		<input name="email" type="hidden" th:value="*{email}">
+		<input name="contents" type="hidden" th:value="*{contents}">
+		<input type="submit" class="btn btn-primary" value="完了する">
+	</form>
+</div>
+
+</main><!-- /.container -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script></body>
+
+</html>
